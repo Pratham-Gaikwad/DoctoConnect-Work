@@ -1,16 +1,9 @@
-// /Import Mongoose 
 const mongoose = require("mongoose")
 
-// Creating user schema
-const Doctor = new mongoose.Schema({
-
+const Patient = new mongoose.Schema({
     userName:{
         type : string ,
         required : true 
-    },
-    photo:{
-        type : string,
-        required : flase
     },
     firstName:{
         type : string ,
@@ -36,21 +29,15 @@ const Doctor = new mongoose.Schema({
         type : Number ,
         required : true 
     },
-    licenceNumber:{
-        type : string ,
-        required : true 
-    },
-    hospital:[
+    treatmentHistory :[
         {
-            type : string ,
-            default : "",
-            required : false 
+            type : string,
+            default:"",
+            required : false
         }
-    ],
-
+    ]
 })
 
-// Creating Model in the database 
-const DocterModel = mongoose.model("Doctor",Doctor);
+const PatientModel = mongoose.model("Patient" , Patient)
 
-module.exports = DocterModel;
+module.exports = PatientModel;
